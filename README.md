@@ -8,7 +8,7 @@ Using wavelet transform to approximate time series
 
 First, let's load the data
 
-```
+```python
 df = pd.read_csv("C:\\Users\\Orin\\Downloads\\Month_Value_1.csv", parse_dates=['Period'], dayfirst=True)
 df = df.iloc[:60]
 
@@ -18,7 +18,7 @@ y = df['Sales_quantity'].to_numpy()
 
 Now you can use to approximate the data using the following code where we remove the noise at the first level.
 
-```
+```python
 wt = WaveletTransformHaar(y)
 wt.set_to_zero_details(0)
 approximations = wt.inverse_transform(0)
@@ -26,7 +26,7 @@ approximations = wt.inverse_transform(0)
 
 Let's plot the result
 
-```
+```python
 plt.figure(figsize=(10, 7))
 
 plt.plot(x, y, marker='o', label='Time series')
@@ -39,6 +39,6 @@ plt.title('Time series')
 plt.show()
 ```
 
-![example](images/example1.PNG)
 
-![example](images/example2.PNG)
+| ![](images/example1.PNG) | ![](images/example2.PNG) |
+|-----------------|-----------------|
